@@ -1,0 +1,18 @@
+[alias]
+	co = checkout
+	com = commit
+	st = status
+	br = branch
+	hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+[user]
+	email = rahatarmanahmed@gmail.com
+	name = Rahat Ahmed
+[push]
+	default = simple
+	followTags = true
+[url "https://"]
+[url "https://"]
+[core]
+
+	# Use the `diff-so-fancy` command from npm. Falls back to default if not present.
+	pager = diff-so-fancy | less --tabs=1,5 -R
