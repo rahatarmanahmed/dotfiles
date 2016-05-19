@@ -2,7 +2,7 @@
 
 This repository stores my dotfiles for OS X using the bare git repo idea outlined by Nicola Paolucci](https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/).
 
-# Installing on a new system
+## Installing on a new system
 
 ```sh
 # Clone dotfiles repo
@@ -28,3 +28,17 @@ dot checkout
 
 # Set config to not show untracked files
 dot config status.showUntrackedFiles no
+```
+
+## Managing dotfiles
+
+The `.aliases` lets you use `dot` in place of `git` in the home directory to manage this repo, like so:
+
+```sh
+cd ~
+dot status
+dot add .zshrc
+dot commit -m"Updated .zshrc"
+dot push origin master
+```
+
