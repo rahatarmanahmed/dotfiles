@@ -1,6 +1,6 @@
 # Rahat's dotfiles
 
-This repository stores my dotfiles for OS X using the bare git repo idea outlined by Nicola Paolucci](https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/).
+This repository stores my dotfiles for OS X using the bare git repo idea outlined by [Nicola Paolucci](https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/).
 
 ## Installing on a new system
 
