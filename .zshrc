@@ -15,6 +15,7 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:$HO
 ## Set EDITOR
 export EDITOR=vi
 
+
 ## Load aliases
 source $HOME/.aliases
 
@@ -26,4 +27,9 @@ export NVM_DIR="/Users/rahat/.nvm"
 
 # Set vi input mode
 bindkey -v
-
+# bind UP and DOWN arrow keys
+zmodload zsh/terminfo
+bindkey "$terminfo[kcuu1]" up-line-or-beginning-search
+bindkey "$terminfo[kcud1]" down-line-or-beginning-search
+bindkey "$terminfo[cuu1]" up-line-or-beginning-search
+bindkey "$terminfo[cud1]" down-line-or-beginning-search
