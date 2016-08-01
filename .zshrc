@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/rahat/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 ZSH_THEME="honukai"
@@ -22,7 +22,7 @@ source $HOME/.aliases
 source $ZSH/oh-my-zsh.sh
 
 # nvm stuff
-export NVM_DIR="/Users/rahat/.nvm"
+export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # Set vi input mode
