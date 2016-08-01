@@ -10,11 +10,10 @@ COMPLETION_WAITING_DOTS="true"
 # User configuration
 
 ## Set PATH
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:$HOME/bin:$HOME/opt/bin"
+export PATH="$PATH:/usr/local/git/bin:$HOME/bin:$HOME/opt/bin"
 
 ## Set EDITOR
 export EDITOR=vi
-
 
 ## Load aliases
 source $HOME/.aliases
@@ -45,4 +44,3 @@ function zle-line-init zle-keymap-select {
 zle -N zle-line-init
 zle -N zle-keymap-select
 export KEYTIMEOUT=1
-
