@@ -10,7 +10,7 @@ git clone --bare git@github.com:rahatarmanahmed/dotfiles.git $HOME/.dotfiles
 
 # Create temporary git alias (this is in the .aliases in the dotfiles repo)
 function dot {
-   /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
+   /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@
 }
 
 # Attempt to checkout dotfiles
