@@ -10,7 +10,7 @@ export EDITOR=vi
 source $HOME/.aliases
 
 ## Load nvm
-export NVM_DIR="/Users/rahmed3/.nvm"
+export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
 # Work stuff
