@@ -14,12 +14,9 @@ source $ZSH/oh-my-zsh.sh
 ## Set vi input mode
 bindkey -v
 
-## bind UP and DOWN arrow keys
-zmodload zsh/terminfo
-bindkey "$terminfo[kcuu1]" up-line-or-beginning-search
-bindkey "$terminfo[kcud1]" down-line-or-beginning-search
-bindkey "$terminfo[cuu1]" up-line-or-beginning-search
-bindkey "$terminfo[cud1]" down-line-or-beginning-search
+## bind UP and DOWN arrow keys in vi mode
+bindkey "^[[A" up-line-or-beginning-search # Up
+bindkey "^[[B" down-line-or-beginning-search # Down
 
 ## Add indicator for vi normal mode
 precmd() { RPROMPT="" }
