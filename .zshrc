@@ -1,15 +1,12 @@
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+source $HOME/.antigen/antigen.zsh
 
-# Set name of the theme to load.
-ZSH_THEME="pure"
+antigen use oh-my-zsh
 
-# Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle mafredri/zsh-async
+antigen bundle sindresorhus/pure
 
-source $ZSH/oh-my-zsh.sh
-
-# User configuration
+antigen apply
 
 ## Set vi input mode
 bindkey -v
