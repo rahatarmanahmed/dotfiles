@@ -3,6 +3,7 @@ source $HOME/.antigen/antigen.zsh
 antigen use oh-my-zsh
 
 antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-completions src
 antigen bundle mafredri/zsh-async
 antigen bundle sindresorhus/pure
 
