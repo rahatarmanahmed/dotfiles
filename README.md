@@ -14,7 +14,7 @@ function dot {
 }
 
 # Attempt to checkout dotfiles
-dot checkout
+dot checkout && dot submodule init && dot submodule update
 
 # If checkout failed, some existing conflicting files need to be moved
 if [ $? = 0 ]; then
@@ -24,7 +24,7 @@ if [ $? = 0 ]; then
     mkdir -p .config-backup
     dot checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .config-backup/{}
 fi;
-dot checkout
+dot checkout && dot submodule init && dot submodule update
 
 # Set config to not show untracked files
 dot config status.showUntrackedFiles no
