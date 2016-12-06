@@ -17,8 +17,10 @@ bindkey -v
 bindkey "^[[A" up-line-or-beginning-search # Up
 bindkey "^[[B" down-line-or-beginning-search # Down
 
-## bind delete key in vi mode
-bindkey "[3~" delete-char
+## bind other keys
+bindkey "^[[3~" delete-char # fix delete key
+bindkey "^[^[[D" backward-word
+bindkey "^[^[[C" forward-word
 
 ## Add indicator for vi normal mode
 precmd() { RPROMPT="" }
