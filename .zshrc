@@ -22,6 +22,14 @@ bindkey "^[[3~" delete-char # fix delete key
 bindkey "^[^[[D" backward-word
 bindkey "^[^[[C" forward-word
 
+## bind alt-backspace. Might need to set iterm2 to use option as +Esc 
+backward-kill-dir () {
+    local WORDCHARS=${WORDCHARS/\/}
+    zle backward-kill-word
+}
+zle -N backward-kill-dir
+bindkey "^[^?" backward-kill-dir
+
 ## Add indicator for vi normal mode
 precmd() { RPROMPT="" }
 function zle-line-init zle-keymap-select {
