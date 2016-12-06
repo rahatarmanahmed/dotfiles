@@ -17,6 +17,9 @@ bindkey -v
 bindkey "^[[A" up-line-or-beginning-search # Up
 bindkey "^[[B" down-line-or-beginning-search # Down
 
+## bind delete key in vi mode
+bindkey "[3~" delete-char
+
 ## Add indicator for vi normal mode
 precmd() { RPROMPT="" }
 function zle-line-init zle-keymap-select {
