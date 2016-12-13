@@ -10,6 +10,9 @@ antigen bundle sindresorhus/pure
 
 antigen apply
 
+## Ignore Ctrl-D that would otherwise close the shell
+setopt ignoreeof
+
 ## Set vi input mode
 bindkey -v
 
