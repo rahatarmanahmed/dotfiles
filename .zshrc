@@ -10,7 +10,7 @@ export CLICOLOR=1
 
 source $HOME/.antigen/antigen.zsh
 
-antigen bundle zsh-users/zsh-completions src
+antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle mafredri/zsh-async
 antigen bundle sindresorhus/pure
@@ -40,6 +40,17 @@ setopt ignoreeof
 # Recognize comments
 setopt interactivecomments
 
+# Graphical completion select menu
+zstyle ':completion:*' menu select
+
+# Show completion groups
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' format '%F{8}---- %d%f'
+
+# Enable completions
+autoload -U compinit
+compinit
+
 ###################################################
 # Key bindings
 ###################################################
@@ -51,6 +62,14 @@ bindkey "^[^[[C" forward-word # [Alt-RightArrow] - move forward one word
 bindkey '^[[1;5C' forward-word # [Ctrl-RightArrow] - move forward one word
 bindkey '^[[1;5D' backward-word # [Ctrl-LeftArrow] - move backward one word
 bindkey "${terminfo[kcbt]}" reverse-menu-complete # [Shift-Tab] - move through the completion menu backwards
+
+## UP and DOWN to fuzzy search history
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search # Up
+bindkey "^[[B" down-line-or-beginning-search # Down
 
 # bind alt-backspace. Might need to set iterm2 to use option as +Esc
 backward-kill-dir () {
