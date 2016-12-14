@@ -4,8 +4,6 @@
 
 source $HOME/.antigen/antigen.zsh
 
-antigen use oh-my-zsh
-
 antigen bundle zsh-users/zsh-completions src
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle mafredri/zsh-async
@@ -58,31 +56,15 @@ export KEYTIMEOUT=1
 
 
 ###################################################
-# Lazyload nvm
+# nvm
 ###################################################
-# all props goes to http://broken-by.me/lazy-load-nvm/
-# grabbed from reddit @ https://www.reddit.com/r/node/comments/4tg5jg/lazy_load_nvm_for_faster_shell_start/
 
-lazynvm() {
-    unset -f nvm node npm
-    export NVM_DIR=~/.nvm
-    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-}
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
-nvm() {
-    lazynvm
-    nvm $@
-}
-
-node() {
-    lazynvm
-    node $@
-}
-
-npm() {
-    lazynvm
-    npm $@
-}
+###################################################
+# Load other files
+###################################################
 
 [[ -f ~/.aliases ]] && source ~/.aliases
 [[ -f ~/.extra ]] && source ~/.extra
