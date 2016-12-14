@@ -34,49 +34,31 @@ setopt hist_verify
 setopt inc_append_history
 setopt share_history # share command history data
 
-## Ignore Ctrl-D that would otherwise close the shell
+# Ignore Ctrl-D that would otherwise close the shell
 setopt ignoreeof
+
+# Recognize comments
+setopt interactivecomments
 
 ###################################################
 # Key bindings
 ###################################################
 
-## Set vi input mode
-bindkey -v
-
-## bind UP and DOWN arrow keys in vi mode
-autoload -U up-line-or-beginning-search
-autoload -U down-line-or-beginning-search
-zle -N up-line-or-beginning-search
-zle -N down-line-or-beginning-search
-bindkey "^[[A" up-line-or-beginning-search # Up
-bindkey "^[[B" down-line-or-beginning-search # Down
-
-## bind other keys
+autoload zsh/terminfo
 bindkey "^[[3~" delete-char # fix delete key
-bindkey "^[^[[D" backward-word
-bindkey "^[^[[C" forward-word
+bindkey "^[^[[D" backward-word # [Alt-RightArrow] - move forward one word
+bindkey "^[^[[C" forward-word # [Alt-RightArrow] - move forward one word
+bindkey '^[[1;5C' forward-word # [Ctrl-RightArrow] - move forward one word
+bindkey '^[[1;5D' backward-word # [Ctrl-LeftArrow] - move backward one word
+bindkey "${terminfo[kcbt]}" reverse-menu-complete # [Shift-Tab] - move through the completion menu backwards
 
-## bind alt-backspace. Might need to set iterm2 to use option as +Esc
+# bind alt-backspace. Might need to set iterm2 to use option as +Esc
 backward-kill-dir () {
     local WORDCHARS=${WORDCHARS/\/}
     zle backward-kill-word
 }
 zle -N backward-kill-dir
 bindkey "^[^?" backward-kill-dir
-
-## Add indicator for vi normal mode
-precmd() { RPROMPT="" }
-function zle-line-init zle-keymap-select {
-    VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
-    RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/} $EPS1"
-    zle reset-prompt
-}
-zle -N zle-line-init
-zle -N zle-keymap-select
-export KEYTIMEOUT=1
-
-
 
 ###################################################
 # nvm
