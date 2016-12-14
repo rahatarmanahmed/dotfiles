@@ -1,5 +1,15 @@
+alias la="ls -ahF"
+alias ls="ls -hF"
+alias ll="ls -lhF"
+alias lla="ls -lahF"
+alias "cd.."="cd ../"
+alias up="cd ../"
+alias cp="cp -r"
+alias mkdir="mkdir -p"
+
 alias g=git
 alias n=npm
+alias v="vim"
 
 # Upload clipboard to hastebin and copy contents
 # Requires `hastebin` from npm globally installed
