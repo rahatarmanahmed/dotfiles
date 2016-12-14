@@ -10,6 +10,7 @@ alias mkdir="mkdir -p"
 alias g=git
 alias n=npm
 alias v="vim"
+alias t="tmux new-session -A -s"
 
 # Upload clipboard to hastebin and copy contents
 # Requires `hastebin` from npm globally installed
