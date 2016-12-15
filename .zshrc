@@ -40,12 +40,18 @@ setopt ignoreeof
 # Recognize comments
 setopt interactivecomments
 
+# CD without CD
+setopt auto_cd
+
 # Graphical completion select menu
 zstyle ':completion:*' menu select
 
 # Show completion groups
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' format '%F{8}---- %d%f'
+
+# Case insensitive completions
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
 # Enable completions
 autoload -U compinit
