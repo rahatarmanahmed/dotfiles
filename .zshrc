@@ -53,6 +53,12 @@ zstyle ':completion:*' format '%F{8}---- %d%f'
 # Case insensitive completions
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
+# Fuzzy completions
+zstyle ':completion:*' matcher-list '' \
+'m:{a-z\-}={A-Z\_}' \
+'r:[^[:alpha:]]||[[:alpha:]]=** r:|=* m:{a-z\-}={A-Z\_}' \
+'r:|?=** m:{a-z\-}={A-Z\_}'
+
 # Enable completions
 autoload -U compinit
 compinit
