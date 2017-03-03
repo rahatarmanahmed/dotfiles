@@ -10,7 +10,7 @@ alias mkdir="mkdir -p"
 alias g=git
 alias n=npm
 alias v="vim"
-alias t="tmux new-session -A -s"
+alias t="tmux new-session -A -s" # Use like `t work` to start/resume work session
 
 # Upload clipboard to hastebin and copy contents
 # Requires `hastebin` from npm globally installed
@@ -18,7 +18,6 @@ alias hasteclip='pbpaste | hastebin | tee /dev/tty | pbcopy'
 
 # Git aliases
 alias gst='git status'
-alias cgr=create-git-repo
 
 # Command to manage dotfiles
 # See https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/
