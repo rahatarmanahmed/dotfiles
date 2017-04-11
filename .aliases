@@ -9,7 +9,7 @@ alias mkdir="mkdir -p"
 
 alias g=git
 alias n=npm
-alias v="vim"
+alias v=vim
 alias t="tmux new-session -A -s" # Use like `t work` to start/resume work session
 
 # Upload clipboard to hastebin and copy contents

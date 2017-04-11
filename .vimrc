@@ -1,6 +1,24 @@
 " Don't try to be vi compatible
 set nocompatible
 
+" Leader
+let g:mapleader = "\<Space>"
+
+" Autoinstall vim-plug if it's not already there
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" vim-plug
+call plug#begin('~/.vim/bundle')
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+call plug#end()
+
+" fzf
+set rtp+=~/.fzf
+
 " Set encoding to utf-8
 set encoding=utf8
 
@@ -79,3 +97,8 @@ set wildmenu
 
 " Enable mouse in all modes
 set mouse=a
+
+" Source local-specific config
+if filereadable(glob("~/.vimrc.local")) 
+    source ~/.vimrc.local
+endif

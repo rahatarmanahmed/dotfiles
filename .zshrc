@@ -104,3 +104,6 @@ export NVM_DIR="$HOME/.nvm"
 
 [[ -f ~/.aliases ]] && source ~/.aliases
 [[ -f ~/.extra ]] && source ~/.extra
+
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
