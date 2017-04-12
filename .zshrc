@@ -106,6 +106,4 @@ export NVM_DIR="$HOME/.nvm"
 [[ -f ~/.extra ]] && source ~/.extra
 
 
-export FZF_DEFAULT_COMMAND='find .'
-export FZF_CTRL_T_COMMAND='find .'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
