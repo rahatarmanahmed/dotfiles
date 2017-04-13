@@ -102,6 +102,16 @@ set wildmenu
 " Enable mouse in all modes
 set mouse=a
 
+" Keep unsaved buffers open
+set hidden
+
+" Bindings to help move between buffers
+map <leader>n :bn<Enter>
+map <leader>p :bp<Enter>
+map <leader>o :Files<Enter>
+map <leader>b :Buffers<Enter>
+
+
 " Source local-specific config
 if filereadable(glob("~/.vimrc.local")) 
     source ~/.vimrc.local
