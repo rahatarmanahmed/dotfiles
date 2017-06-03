@@ -6,7 +6,7 @@ This repository stores my dotfiles for OS X using the bare git repo idea outline
 
 ```sh
 # Clone dotfiles repo
-git clone --bare git@github.com:rahatarmanahmed/dotfiles.git $HOME/.dotfiles
+git clone --bare https://github.com/rahatarmanahmed/dotfiles.git $HOME/.dotfiles
 
 # Create temporary git alias (this is in the .aliases in the dotfiles repo)
 function dot {
