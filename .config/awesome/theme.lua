@@ -6,16 +6,16 @@ local theme = {}
 
 theme.font          = "sans 8"
 
-theme.bg_normal     = "#222222"
-theme.bg_focus      = "#535d6c"
-theme.bg_urgent     = "#ff0000"
-theme.bg_minimize   = "#444444"
+theme.bg_normal     = "#1B1D1E"
+theme.bg_focus      = "#1B1D1E"
+theme.bg_urgent     = "#1B1D1E"
+theme.bg_minimize   = "#1B1D1E"
 theme.bg_systray    = theme.bg_normal
 
-theme.fg_normal     = "#aaaaaa"
-theme.fg_focus      = "#ffffff"
-theme.fg_urgent     = "#ffffff"
-theme.fg_minimize   = "#ffffff"
+theme.fg_normal     = "#75715E"
+theme.fg_focus      = "#A6E22E"
+theme.fg_urgent     = "#F92672"
+theme.fg_minimize   = "#75715E"
 
 theme.useless_gap   = 0
 theme.border_width  = 1
