@@ -10,7 +10,7 @@ alias mkdir="mkdir -p"
 alias g=git
 alias n=npm
 alias v=vim
-alias t="tmux new-session -A -s" # Use like `t work` to start/resume work session
+alias t="tmux new-session -AD -s" # Use like `t work` to start/resume work session
 
 # Upload clipboard to hastebin and copy contents
 # Requires `hastebin` from npm globally installed
@@ -25,3 +25,9 @@ alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # Nicer grep
 alias grep='grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
+
+# alias xclip to pb(paste|copy)
+if ! type -p pbpaste &> /dev/null; then
+    alias pbcopy='xclip -selection clipboard'
+    alias pbpaste='xclip -selection clipboard -o'
+fi

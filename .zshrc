@@ -68,6 +68,9 @@ compinit
 ###################################################
 
 autoload zsh/terminfo
+
+bindkey -e # emacs command mode b/c vi mode breaks stuff
+
 bindkey "^[[3~" delete-char # fix delete key
 bindkey "^[^[[D" backward-word # [Alt-RightArrow] - move forward one word
 bindkey "^[^[[C" forward-word # [Alt-RightArrow] - move forward one word
@@ -107,3 +110,13 @@ export NVM_DIR="$HOME/.nvm"
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+###################################################
+# Color fixes
+###################################################
+
+if [ $TMUX ]; then
+    export TERM='screen-256color'
+else
+    export TERM='xterm-256color'
+fi
