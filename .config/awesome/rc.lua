@@ -192,7 +192,7 @@ awful.screen.connect_for_each_screen(function(s)
     s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, tasklist_buttons)
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s })
+    s.mywibox = awful.wibar({ position = "bottom", screen = s })
 
     -- Add widgets to the wibox
     s.mywibox:setup {
@@ -209,7 +209,7 @@ awful.screen.connect_for_each_screen(function(s)
             -- mykeyboardlayout,
             wibox.widget.systray(),
             mytextclock,
-            -- s.mylayoutbox,
+            s.mylayoutbox,
         },
     }
 end)
@@ -321,7 +321,9 @@ globalkeys = awful.util.table.join(
               {description = "lua execute prompt", group = "awesome"}),
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"})
+              {description = "show the menubar", group = "launcher"}),
+    awful.key({ "Control", "Mod1" }, "l", function () awful.util.spawn_with_shell("gnome-screensaver-command --lock") end,
+              {description = "lock the screen", group = "awesome"})
 )
 
 clientkeys = awful.util.table.join(
@@ -427,7 +429,8 @@ awful.rules.rules = {
                      keys = clientkeys,
                      buttons = clientbuttons,
                      screen = awful.screen.preferred,
-                     placement = awful.placement.no_overlap+awful.placement.no_offscreen
+                     placement = awful.placement.no_overlap+awful.placement.no_offscreen,
+                     size_hints_honor = true
      }
     },
 
