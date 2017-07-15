@@ -99,9 +99,6 @@ set smarttab
 " Enable wildmode command completion
 set wildmenu
 
-" Enable mouse in all modes
-set mouse=a
-
 " Keep unsaved buffers open
 set hidden
 
