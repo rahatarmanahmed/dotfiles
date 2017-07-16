@@ -20,8 +20,8 @@ call plug#end()
 
 " fzf
 set rtp+=~/.fzf
-" Map Ctrl-P to fzf open file
-map <C-p> :Files<Enter>
+" Map Ctrl-P to fzf open file (tracked in git)
+map <C-p> :GFiles<Enter>
 
 " Set encoding to utf-8
 set encoding=utf8
