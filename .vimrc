@@ -16,6 +16,7 @@ call plug#begin('~/.vim/bundle')
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-commentary'
 call plug#end()
 
 " fzf
@@ -107,6 +108,12 @@ map <leader>n :bn<Enter>
 map <leader>p :bp<Enter>
 map <leader>o :Files<Enter>
 map <leader>b :Buffers<Enter>
+
+" Bindings to help comment
+xmap <leader>/  <Plug>Commentary
+nmap <leader>/  <Plug>Commentary
+omap <leader>/  <Plug>Commentary
+nmap <leader>// <Plug>CommentaryLine
 
 
 " Source local-specific config
