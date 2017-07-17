@@ -17,3 +17,5 @@
 
 	# Use the `diff-so-fancy` command from npm.
 	pager = diff-so-fancy | less --tabs=1,5 -R
+[color]
+	ui = auto
