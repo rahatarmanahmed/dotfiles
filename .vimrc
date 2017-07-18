@@ -16,7 +16,11 @@ call plug#begin('~/.vim/bundle')
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'airblade/vim-gitgutter'
+Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 " fzf
@@ -60,6 +64,9 @@ hi CursorLine term=bold cterm=bold ctermbg=8
 
 " Always show current position
 set ruler
+
+" Show vertical ruler at 80 character line
+set colorcolumn=80
 
 " Highlight search results while searching
 set hlsearch
