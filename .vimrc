@@ -21,12 +21,24 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
 Plug 'jiangmiao/auto-pairs'
+Plug 'vim-syntastic/syntastic'
+Plug 'pangloss/vim-javascript'
 call plug#end()
 
 " fzf
 set rtp+=~/.fzf
 " Map Ctrl-P to fzf open file (tracked in git)
 map <C-p> :GFiles<Enter>
+
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " Set encoding to utf-8
 set encoding=utf8
@@ -66,7 +78,10 @@ hi CursorLine term=bold cterm=bold ctermbg=8
 set ruler
 
 " Show vertical ruler at 80 character line
-set colorcolumn=80
+set colorcolumn=+1
+
+" Use system clipboard
+set clipboard=unnamedplus
 
 " Highlight search results while searching
 set hlsearch
