@@ -19,16 +19,28 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
 Plug 'airblade/vim-gitgutter'
 Plug 'jiangmiao/auto-pairs'
 Plug 'vim-syntastic/syntastic'
 Plug 'pangloss/vim-javascript'
+Plug 'dyng/ctrlsf.vim'
+Plug 'chriskempson/base16-vim'
 call plug#end()
 
 " fzf
 set rtp+=~/.fzf
 " Map Ctrl-P to fzf open file (tracked in git)
-map <C-p> :GFiles<Enter>
+map <C-p> :Files<Enter>
+" Map Ctrl-F to some CtrlSF stuff (searching in files)
+nmap     <C-F>f <Plug>CtrlSFPrompt
+vmap     <C-F>f <Plug>CtrlSFVwordPath
+vmap     <C-F>F <Plug>CtrlSFVwordExec
+nmap     <C-F>n <Plug>CtrlSFCwordPath
+nmap     <C-F>p <Plug>CtrlSFPwordPath
+nnoremap <C-F>o :CtrlSFOpen<CR>
+nnoremap <C-F>t :CtrlSFToggle<CR>
+inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
 
 " syntastic
 set statusline+=%#warningmsg#
@@ -44,8 +56,10 @@ let g:syntastic_check_on_wq = 0
 set encoding=utf8
 
 " Set colorscheme
-colorscheme monokai
-set background=dark
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 
 " Set wordwrap
 set wrap
@@ -124,6 +138,9 @@ set wildmenu
 
 " Keep unsaved buffers open
 set hidden
+
+" Enable mouse mode
+set mouse=a
 
 " Bindings to help move between buffers
 map <leader>n :bn<Enter>

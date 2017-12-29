@@ -14,6 +14,7 @@ antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle mafredri/zsh-async
 antigen bundle sindresorhus/pure
+antigen bundle chriskempson/base16-shell
 
 antigen apply
 
@@ -120,3 +121,18 @@ if [ $TMUX ]; then
 else
     export TERM='xterm-256color'
 fi
+
+# Set up the base16 color scheme
+BASE16_SHELL=$HOME/.antigen/bundles/chriskempson/base16-shell
+[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+_base16 "/usr/local/google/home/rahatahmed/.antigen/bundles/chriskempson/base16-shell/scripts/base16-hopscotch.sh" hopscotch
+
+###################################################
+# FZF
+###################################################
+
+# Use ag if it's installed
+if type ag &> /dev/null; then
+    export FZF_DEFAULT_COMMAND='ag -g ""'
+fi
+
