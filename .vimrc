@@ -26,6 +26,7 @@ Plug 'vim-syntastic/syntastic'
 Plug 'pangloss/vim-javascript'
 Plug 'dyng/ctrlsf.vim'
 Plug 'chriskempson/base16-vim'
+Plug 'vim-airline/vim-airline'
 call plug#end()
 
 " fzf
