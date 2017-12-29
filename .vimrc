@@ -99,6 +99,10 @@ set colorcolumn=+1
 " Use system clipboard
 set clipboard=unnamedplus
 
+" Let Ctrl-C copy in Secure Shell
+source ~/.vim/osc52.vim
+vmap <C-c> y:call SendViaOSC52(getreg('"'))<cr>
+
 " Highlight search results while searching
 set hlsearch
 set incsearch
