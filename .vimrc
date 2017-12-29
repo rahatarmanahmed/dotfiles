@@ -27,6 +27,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'dyng/ctrlsf.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'vim-airline/vim-airline'
+Plug 'ConradIrwin/vim-bracketed-paste'
 call plug#end()
 
 " fzf
