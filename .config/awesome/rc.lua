@@ -322,7 +322,7 @@ globalkeys = awful.util.table.join(
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end,
               {description = "show the menubar", group = "launcher"}),
-    awful.key({ "Control", "Mod1" }, "l", function () awful.util.spawn_with_shell("gnome-screensaver-command --lock") end,
+    awful.key({ "Control", "Mod1" }, "l", function () awful.util.spawn_with_shell("cinnamon-screensaver-command --lock") end,
               {description = "lock the screen", group = "awesome"}),
     awful.key({ }, "XF86AudioRaiseVolume", function () awful.util.spawn("amixer set Master 5%+", false) end),
     awful.key({ }, "XF86AudioLowerVolume", function () awful.util.spawn("amixer set Master 5%-", false) end),
@@ -544,3 +544,4 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 awful.spawn("setxkbmap -option ctrl:nocaps")
+awful.spawn("cinnamon-screensaver")
