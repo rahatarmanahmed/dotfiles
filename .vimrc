@@ -54,12 +54,19 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+" lord help me learn this c++
+let g:syntastic_cpp_compiler_options = "-std=c++17 -Wall -Wextra -Wpedantic"
+
 " Set encoding to utf-8
 set encoding=utf8
 
 " Set colorscheme
 if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
+  if exists('+termguicolors')
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    set termguicolors
+  endif
   source ~/.vimrc_background
 endif
 
