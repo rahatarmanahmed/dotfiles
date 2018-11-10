@@ -97,7 +97,7 @@ set ruler
 set colorcolumn=+1
 
 " Use system clipboard
-set clipboard=unnamedplus
+set clipboard=unnamed
 
 " Let Ctrl-C copy in Secure Shell
 source ~/.vim/osc52.vim
