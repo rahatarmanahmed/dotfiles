@@ -28,6 +28,7 @@ Plug 'dyng/ctrlsf.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'ConradIrwin/vim-bracketed-paste'
+Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
 " fzf
@@ -160,6 +161,18 @@ map <leader>n :bn<Enter>
 map <leader>p :bp<Enter>
 map <leader>o :Files<Enter>
 map <leader>b :Buffers<Enter>
+
+" Bindings to help create split windows
+map <leader>\ :vsp<Enter>
+map <leader>- :sp<Enter>
+map <leader>d <C-w>q
+map <leader>D :bd!<Enter>
+
+" Bindings to help move between split windows
+map <leader>h <C-w>h
+map <leader>j <C-w>j
+map <leader>k <C-w>k
+map <leader>l <C-w>l
 
 " Bindings to help comment
 xmap <leader>/  <Plug>Commentary
