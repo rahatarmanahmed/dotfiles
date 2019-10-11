@@ -22,18 +22,23 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'mhinz/vim-signify'
 Plug 'jiangmiao/auto-pairs'
-Plug 'vim-syntastic/syntastic'
+" Plug 'vim-syntastic/syntastic'
+Plug 'w0rp/ale'
 Plug 'pangloss/vim-javascript'
-Plug 'dyng/ctrlsf.vim'
+" Plug 'dyng/ctrlsf.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'ConradIrwin/vim-bracketed-paste'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'HerringtonDarkholme/yats.vim'
 call plug#end()
+
+" Search down into subfolders
+set path+=**
+map <C-p> :find *
 
 " fzf
 set rtp+=~/.fzf
-" Map Ctrl-P to fzf open file (tracked in git)
-map <C-p> :Files<Enter>
 " Map Ctrl-F to some CtrlSF stuff (searching in files)
 nmap     <C-F>f <Plug>CtrlSFPrompt
 vmap     <C-F>f <Plug>CtrlSFVwordPath
@@ -44,22 +49,37 @@ nnoremap <C-F>o :CtrlSFOpen<CR>
 nnoremap <C-F>t :CtrlSFToggle<CR>
 inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
 
-" syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" " syntastic
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+
+" " lord help me learn this c++
+" let g:syntastic_cpp_compiler_options = "-std=c++17 -Wall -Wextra -Wpedantic"
+
+" Friendship ended with Syntastic, ALE is my best friend now
+let g:ale_linters_explicit = 1
+let g:ale_linters = {'javascript': ['eslint']}
+
+" vim-airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#ale#enabled = 1
 
 " Set encoding to utf-8
 set encoding=utf8
 
 " Set colorscheme
 if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
+  if exists('+termguicolors')
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    set termguicolors
+  endif
   source ~/.vimrc_background
 endif
 
@@ -84,7 +104,8 @@ syntax on
 set number
 
 " Set to auto read when a file is changed from the outside
-" set autoread
+set autoread
+" au CursorRead * checktime
 
 " Show location of cursor using a horizontal line.
 set cursorline
@@ -97,7 +118,7 @@ set ruler
 set colorcolumn=+1
 
 " Use system clipboard
-set clipboard=unnamedplus
+set clipboard=unnamed
 
 " Let Ctrl-C copy in Secure Shell
 source ~/.vim/osc52.vim
@@ -148,11 +169,29 @@ set hidden
 " Enable mouse mode
 set mouse=a
 
+" netrw (file browser) settings
+" Hide the banner by default
+let g:netrw_banner=0
+
+
 " Bindings to help move between buffers
-map <leader>n :bn<Enter>
-map <leader>p :bp<Enter>
+" map <leader>n :bn<Enter>
+" map <leader>p :bp<Enter>
+map <C-p> :Files<Enter>
 map <leader>o :Files<Enter>
 map <leader>b :Buffers<Enter>
+
+" Bindings to help create split windows
+map <leader>\ :vsp<Enter>
+map <leader>- :sp<Enter>
+map <leader>d <C-w>q
+map <leader>D :bd!<Enter>
+
+" Bindings to help move between split windows
+map <leader>h <C-w>h
+map <leader>j <C-w>j
+map <leader>k <C-w>k
+map <leader>l <C-w>l
 
 " Bindings to help comment
 xmap <leader>/  <Plug>Commentary
