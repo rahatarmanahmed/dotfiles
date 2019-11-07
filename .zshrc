@@ -133,6 +133,6 @@ _base16 "/usr/local/google/home/rahatahmed/.antigen/bundles/chriskempson/base16-
 
 # Use ag if it's installed
 if type ag &> /dev/null; then
-    export FZF_DEFAULT_COMMAND='ag -g ""'
+    export FZF_DEFAULT_COMMAND='ag --path-to-ignore ~/.ignore -g ""'
 fi
 
