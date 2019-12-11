@@ -31,6 +31,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'HerringtonDarkholme/yats.vim'
+Plug 'rust-lang/rust.vim'
 call plug#end()
 
 " Search down into subfolders
