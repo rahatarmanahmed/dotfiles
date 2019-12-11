@@ -32,6 +32,7 @@ Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'rust-lang/rust.vim'
+Plug 'ycm-core/YouCompleteMe'
 call plug#end()
 
 " Search down into subfolders
