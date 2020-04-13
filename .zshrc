@@ -77,7 +77,7 @@ bindkey "^[^[[D" backward-word # [Alt-RightArrow] - move forward one word
 bindkey "^[^[[C" forward-word # [Alt-RightArrow] - move forward one word
 bindkey '^[[1;5C' forward-word # [Ctrl-RightArrow] - move forward one word
 bindkey '^[[1;5D' backward-word # [Ctrl-LeftArrow] - move backward one word
-bindkey "${terminfo[kcbt]}" reverse-menu-complete # [Shift-Tab] - move through the completion menu backwards
+bindkey "^[[Z" reverse-menu-complete # [Shift-Tab] - move through the completion menu backwards
 
 ## UP and DOWN to fuzzy search history
 autoload -U up-line-or-beginning-search
@@ -125,7 +125,6 @@ fi
 # Set up the base16 color scheme
 BASE16_SHELL=$HOME/.antigen/bundles/chriskempson/base16-shell
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
-_base16 "/usr/local/google/home/rahatahmed/.antigen/bundles/chriskempson/base16-shell/scripts/base16-eighties.sh" eighties
 
 ###################################################
 # FZF
