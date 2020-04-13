@@ -118,7 +118,7 @@ set ruler
 set colorcolumn=+1
 
 " Use system clipboard
-set clipboard=unnamed
+set clipboard+=unnamed
 
 " Let Ctrl-C copy in Secure Shell
 source ~/.vim/osc52.vim
@@ -184,7 +184,8 @@ map <leader>b :Buffers<Enter>
 " Bindings to help create split windows
 map <leader>\ :vsp<Enter>
 map <leader>- :sp<Enter>
-map <leader>d <C-w>q
+" map <leader>d <C-w>q " removing b/c it conflicts with ycm show full error
+" message command
 map <leader>D :bd!<Enter>
 
 " Bindings to help move between split windows
