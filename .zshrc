@@ -10,13 +10,29 @@ export CLICOLOR=1
 
 source $HOME/.antigen/antigen.zsh
 
-antigen bundle zsh-users/zsh-completions
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle mafredri/zsh-async
-antigen bundle sindresorhus/pure
 antigen bundle chriskempson/base16-shell
 
 antigen apply
+
+
+###################################################
+# Prompt
+###################################################
+
+setopt prompt_subst
+PROMPT="%F{blue}%~%f %F{yellow}\${elapsed}%f"$'\n'"%(?.%F{green}.%F{red})❯%f "
+
+function preexec() {
+  timer=$(($(date +%s%0N)/1000000))
+}
+
+function precmd() {
+  if [ $timer ]; then
+    now=$(($(date +%s%0N)/1000000))
+    elapsed=$(($now-$timer))ms
+    unset timer
+  fi
+}
 
 ###################################################
 # Zsh options
