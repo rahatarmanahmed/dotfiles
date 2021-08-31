@@ -5,17 +5,6 @@
 export CLICOLOR=1
 
 ###################################################
-# Antigen
-###################################################
-
-source $HOME/.antigen/antigen.zsh
-
-antigen bundle chriskempson/base16-shell
-
-antigen apply
-
-
-###################################################
 # Prompt
 ###################################################
 
@@ -138,8 +127,12 @@ else
     export TERM='xterm-256color'
 fi
 
+###################################################
+# base16-shell
+###################################################
+
 # Set up the base16 color scheme
-BASE16_SHELL=$HOME/.antigen/bundles/chriskempson/base16-shell
+BASE16_SHELL=$HOME/.base16-shell
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
 ###################################################
