@@ -22,17 +22,14 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'mhinz/vim-signify'
 Plug 'jiangmiao/auto-pairs'
-" Plug 'vim-syntastic/syntastic'
 Plug 'w0rp/ale'
 Plug 'pangloss/vim-javascript'
-" Plug 'dyng/ctrlsf.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'rust-lang/rust.vim'
-Plug 'ycm-core/YouCompleteMe'
 call plug#end()
 
 " Search down into subfolders
@@ -70,6 +67,7 @@ let g:ale_linters = {'javascript': ['eslint']}
 
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
+" Show ale errors under airline
 let g:airline#extensions#ale#enabled = 1
 
 " Set encoding to utf-8
@@ -170,6 +168,11 @@ set hidden
 
 " Enable mouse mode
 set mouse=a
+
+" Vim annoyingly shows a prompt when it redraws the screen but there's text you
+" might need to read. These settings reduce how often that happens
+set shortmess=a
+set cmdheight=2
 
 " netrw (file browser) settings
 " Hide the banner by default
