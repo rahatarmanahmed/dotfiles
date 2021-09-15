@@ -157,6 +157,6 @@ if type ag &> /dev/null; then
     export FZF_DEFAULT_COMMAND='ag --path-to-ignore ~/.ignore -g ""'
 fi
 if type rg &> /dev/null; then
-    export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
+    export FZF_DEFAULT_COMMAND='rg --files'
 fi
 
