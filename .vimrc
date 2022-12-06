@@ -63,7 +63,17 @@ inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
 
 " Friendship ended with Syntastic, ALE is my best friend now
 let g:ale_linters_explicit = 1
-let g:ale_linters = {'javascript': ['eslint']}
+let g:ale_linters = {'javascript': ['eslint'], 'rust': ['analyzer']}
+let g:ale_fixers = {'rust': ['rustfmt']}
+let g:ale_completion_enabled = 1
+let g:ale_fix_on_save = 1
+
+" Make tab select/complete the item
+inoremap <expr> <Tab>  pumvisible() ? "\<C-n>" : "\<Tab>"
+
+
+
+
 
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
