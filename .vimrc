@@ -107,6 +107,10 @@ nnoremap k gk
 set whichwrap+=<,>,h,l,[,]
 set backspace=indent,eol,start
 
+" Fix error highlights being unreadable on light bgs
+highlight SpellCap ctermfg=black
+highlight SpellBad ctermfg=black
+
 " Turn on syntax highlighting
 syntax on
 
