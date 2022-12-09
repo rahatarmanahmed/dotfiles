@@ -30,6 +30,7 @@ Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'rust-lang/rust.vim'
+Plug 'ojroques/vim-oscyank'
 call plug#end()
 
 " Search down into subfolders
@@ -134,9 +135,9 @@ set colorcolumn=+1
 " Use system clipboard
 set clipboard+=unnamed
 
-" Let Ctrl-C copy in Secure Shell
-source ~/.vim/osc52.vim
-vmap <C-c> y:call SendViaOSC52(getreg('"'))<cr>
+" Let Ctrl-C copy in Chrome OS/SSH/tmux
+vmap <C-c> :OSCYank<cr>
+let g:oscyank_term = 'default'
 
 " Highlight search results while searching
 set hlsearch
