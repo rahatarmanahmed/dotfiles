@@ -136,7 +136,7 @@ set colorcolumn=+1
 set clipboard+=unnamed
 
 " Let Ctrl-C copy in Chrome OS/SSH/tmux
-vmap <C-c> :OSCYank<cr>
+vmap <C-c> :OSCYankVisual<cr>
 let g:oscyank_term = 'default'
 
 " Highlight search results while searching
