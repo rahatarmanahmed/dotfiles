@@ -31,6 +31,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'ojroques/vim-oscyank'
+Plug 'ledger/vim-ledger'
 call plug#end()
 
 " Search down into subfolders

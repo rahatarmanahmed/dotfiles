@@ -160,3 +160,8 @@ if type rg &> /dev/null; then
     export FZF_DEFAULT_COMMAND='rg --files'
 fi
 
+###################################################
+# hledger
+###################################################
+
+export LEDGER_FILE=~/finances/2023.journal
