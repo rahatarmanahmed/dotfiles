@@ -219,7 +219,6 @@ map <leader>l <C-w>l
 xmap <leader>/  <Plug>Commentary
 nmap <leader>/  <Plug>Commentary
 omap <leader>/  <Plug>Commentary
-nmap <leader>// <Plug>CommentaryLine
 
 
 " Source local-specific config
