@@ -20,7 +20,7 @@ return {'romgrk/barbar.nvim',
           [vim.diagnostic.severity.ERROR] = {enabled = false, icon = 'ﬀ'},
           [vim.diagnostic.severity.WARN] = {enabled = false},
           [vim.diagnostic.severity.INFO] = {enabled = false},
-          [vim.diagnostic.severity.HINT] = {enabled = true},
+          [vim.diagnostic.severity.HINT] = {enabled = false},
         },
         gitsigns = {
           added = {enabled = true, icon = '+'},

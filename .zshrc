@@ -164,7 +164,7 @@ fi
 # hledger
 ###################################################
 
-export LEDGER_FILE=~/finances/2023.journal
+export LEDGER_FILE=~/finances/2024.journal
 
 # Create wrappers around common nvm consumers.
 # nvm, node, yarn and npm will load nvm.sh on their first invocation,

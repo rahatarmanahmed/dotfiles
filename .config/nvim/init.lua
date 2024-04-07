@@ -25,6 +25,9 @@ vim.opt.scrolloff = 3
 -- Show line numbers
 vim.opt.number = true
 
+-- Don't need a useless ruler if we enable number
+vim.opt.ruler = false
+
 -- Auto read file when changed from the outside
 vim.opt.autoread = true
 

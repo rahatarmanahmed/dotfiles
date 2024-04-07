@@ -6,6 +6,21 @@ lsp_zero.on_attach(function(client, bufnr)
   lsp_zero.default_keymaps({buffer = bufnr})
 end)
 
+-- Make gq use the lsp formatter
+-- TODO: figure out if it can do partial formatting
+lsp_zero.format_mapping('gq', {
+  servers = {
+    ['rust_analyzer'] = {'rust'},
+    ['tsserver'] = {'javascript', 'typescript'},
+  }
+})
+
+
+-- Set up lua lsp for nvim config
+local lua_opts = lsp_zero.nvim_lua_ls()
+require('lspconfig').lua_ls.setup(lua_opts)
+
+-- Use mason to manage lsp servers
 require('mason').setup({})
 require('mason-lspconfig').setup({
   ensure_installed = {'tsserver', 'rust_analyzer', 'lua_ls'},
@@ -27,9 +42,14 @@ require("mason-lspconfig").setup_handlers {
     -- end
 }
 
-
+require('lsp-zero').extend_cmp()
 local cmp = require('cmp')
+local cmp_action = lsp_zero.cmp_action()
 cmp.setup({
+    sources = {
+        { name = 'nvim_lsp' },
+        { name = 'hledger' },
+    },
   mapping = cmp.mapping.preset.insert({
     -- confirm completion
     ['<CR>'] = cmp.mapping.confirm({select = true}),
@@ -39,4 +59,9 @@ cmp.setup({
     ['<C-u>'] = cmp.mapping.scroll_docs(-4),
     ['<C-d>'] = cmp.mapping.scroll_docs(4),
   }),
+    -- preselect first item
+    preselect = 'item',
+    completion = {
+        completeopt = 'menu,menuone,noinsert'
+    },
 })

@@ -18,3 +18,7 @@ vim.keymap.set("", "<leader>l", "<C-w>l", { desc = "Move to window right" })
 -- Delete or paste without yanking deleted text
 vim.keymap.set({"n", "v"}, "<leader>d", "\"_d", { desc = "Delete without yank" })
 vim.keymap.set("v", "<leader>p", "\"_dP", { desc = "Paste without yank" })
+
+-- J/K in visual mode to move selected lines around
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selection down line" })
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selection up line" })
