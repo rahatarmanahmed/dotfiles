@@ -166,7 +166,48 @@ fi
 
 export LEDGER_FILE=~/finances/2023.journal
 
-# This is slow...
-export NVM_DIR="$HOME/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# Create wrappers around common nvm consumers.
+# nvm, node, yarn and npm will load nvm.sh on their first invocation,
+# posing no start up time penalty for the shells that aren't going to use them at all.
+# There is only single time penalty for one shell.
+load-nvm() {
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+}
+
+nvm() {
+    unset -f nvm
+    load-nvm
+    nvm "$@"
+}
+
+node() {
+    unset -f node
+    load-nvm
+    node "$@"
+}
+
+npm() {
+    unset -f npm
+    load-nvm
+    npm "$@"
+}
+
+npx() {
+    unset -f npx
+    load-nvm
+    npx "$@"
+}
+
+pnpm() {
+    unset -f pnpm
+    load-nvm
+    pnpm "$@"
+}
+
+yarn() {
+    unset -f yarn
+    load-nvm
+    yarn "$@"
+}
