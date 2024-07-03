@@ -109,8 +109,8 @@ autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
-bindkey "^[[A" up-line-or-beginning-search # Up
-bindkey "^[[B" down-line-or-beginning-search # Down
+bindkey "$terminfo[kcuu1]" up-line-or-beginning-search # Up
+bindkey "$terminfo[kcud1]" down-line-or-beginning-search # Down
 
 # bind alt-backspace. Might need to set iterm2 to use option as +Esc
 backward-kill-dir () {
@@ -211,3 +211,19 @@ yarn() {
     load-nvm
     yarn "$@"
 }
+
+# Load pyenv automatically by appending
+# the following to
+# ~/.bash_profile if it exists, otherwise ~/.profile (for login shells)
+# and ~/.bashrc (for interactive shells) :
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# Restart your shell for the changes to take effect.
+
+# Load pyenv-virtualenv automatically by adding
+# the following to ~/.bashrc:
+
+eval "$(pyenv virtualenv-init -)"
