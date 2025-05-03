@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+# Create a dated text file at a specific location and append text to it.
+#
+# Usage:
+#   $ jrnl something you want to jot down (appends that text to the file)
+#   $ xclip -o | jrnl                     (appends your clipboard to the file)
+#   $ jrnl                                (opens the file in your editor)
+#
+# Produces:
+#   YYYY-MM-DD.md in your $NOTES_DIRECTORY (this is set below).
+
+set -e
+
+readonly NOTES_DIRECTORY="${NOTES_DIRECTORY:-"${HOME}/notes"}"
+readonly DATE="$(date +%Y-%m-%d)"
+readonly NOTES_FILE="${DATE}.md"
+readonly NOTES_PATH="${NOTES_DIRECTORY}/${NOTES_FILE}"
+readonly DATE_HEADER="# 📕 Daily Journal: ${DATE}"
+
+# Add header if daily notes file doesn't exist
+if [ ! -f "${NOTES_PATH}" ]; then
+  echo "${DATE_HEADER}" > "${NOTES_PATH}"
+fi
+
+if [ ${#} -eq 0 ]; then
+  if [ -p "/dev/stdin" ]; then
+    (cat; printf "\n\n") >> "${NOTES_PATH}"
+  else
+    eval "${EDITOR}" "${NOTES_PATH}"
+  fi
+else
+  printf "%s\n\n" "${*}" >> "${NOTES_PATH}"
+fi

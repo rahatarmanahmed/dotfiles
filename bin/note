@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Opens a named note file in your editor.  Creates the file if it doesn't exist.
+#
+# Usage:
+#   $ note <name>
+
+set -e
+
+readonly NOTES_DIRECTORY="${NOTES_DIRECTORY:-"${HOME}/notes"}"
+
+if [ $# -ne 1 ]; then
+  echo "Usage: $0 <name>" >&2
+  exit 1
+fi
+
+NOTES_PATH="${NOTES_DIRECTORY}/$1.md"
+
+# Open the file in the default editor.
+eval "${EDITOR}" "${NOTES_PATH}"
