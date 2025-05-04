@@ -11,7 +11,7 @@ end)
 lsp_zero.format_mapping('gq', {
   servers = {
     ['rust_analyzer'] = {'rust'},
-    ['tsserver'] = {'javascript', 'typescript'},
+    ['ts_ls'] = {'javascript', 'typescript'},
   }
 })
 
@@ -23,7 +23,7 @@ require('lspconfig').lua_ls.setup(lua_opts)
 -- Use mason to manage lsp servers
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  ensure_installed = {'tsserver', 'rust_analyzer', 'lua_ls'},
+  ensure_installed = {'ts_ls', 'rust_analyzer', 'lua_ls'},
   handlers = {
     lsp_zero.default_setup,
   },

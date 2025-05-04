@@ -54,3 +54,5 @@ vim.opt.softtabstop = 4
 vim.opt.expandtab = true
 -- Don't round to nearest tabs (helps when trying to precisely set # of spaces)
 vim.opt.shiftround = false
+
+vim.diagnostic.config({ virtual_lines = true })
