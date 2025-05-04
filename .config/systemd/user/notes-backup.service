@@ -1,0 +1,5 @@
+[Unit]
+Description=Backs up notes to NAS
+
+[Service]
+ExecStart=/usr/bin/rsync -avz %h/notes/ rahat@kanjizone:/volume1/homes/rahat/notes

@@ -1,0 +1,8 @@
+[Unit]
+Description=Watches notes directory for sync to NAS
+
+[Path]
+PathChanged=%h/notes
+
+[Install]
+WantedBy=default.target
