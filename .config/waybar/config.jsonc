@@ -1,6 +1,7 @@
 {
   "position": "top",
   "modules-left": [
+    "custom/power",
     "hyprland/workspaces"
   ],
   "modules-center": [
@@ -9,5 +10,13 @@
   "modules-right": [
     "battery",
     "clock"
-  ]
+  ],
+
+  "custom/power": {
+      "format": "󰐥",
+      "on-click": "powermenu.sh",
+      "on-click-right": "powermenu.sh",
+      "tooltip-format": "Power menu",
+      "tooltip": true,
+  }
 }
