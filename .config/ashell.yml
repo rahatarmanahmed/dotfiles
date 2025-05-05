@@ -85,10 +85,10 @@ settings:
   audioSourcesMoreCmd: "pavucontrol -t 4" # optional, default None
   # command used to open the network settings
   # without a value the related button will not appear
-  wifiMoreCmd: "iwgtk" # optional, default None
+  wifiMoreCmd: "nm-connection-editor" # optional, default None
   # command used to open the VPN settings
   # without a value the related button will not appear
-  # vpnMoreCmd: "nm-connection-editor" # optional, default None
+  vpnMoreCmd: "nm-connection-editor" # optional, default None
   # command used to open the Bluetooth settings
   # without a value the related button will not appear
   bluetoothMoreCmd: "blueman-manager" # optional, default None
