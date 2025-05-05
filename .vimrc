@@ -165,10 +165,10 @@ set laststatus=2
 set listchars=tab:▸\ ,eol:¬,trail:·
 set list
 
-" Set soft tabs to 4 spaces
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+" Set soft tabs to 2 spaces
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 set noshiftround
 

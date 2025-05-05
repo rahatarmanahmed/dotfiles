@@ -48,9 +48,9 @@ vim.opt.list = true
 vim.opt.listchars = "tab:▸ ,eol:¬,trail:·"
 
 -- Set soft tabs to 4 spaces. Always use soft tabs.
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.softtabstop = 4
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.softtabstop = 2
 vim.opt.expandtab = true
 -- Don't round to nearest tabs (helps when trying to precisely set # of spaces)
 vim.opt.shiftround = false
