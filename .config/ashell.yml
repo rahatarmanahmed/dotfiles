@@ -41,7 +41,7 @@ updates: # optional, default None
   # It should return something like `package_name version_from -> version_to\n`
   checkCmd: "pacman -Qu" # required
   # The update command is used to init the OS update process
-  updateCmd: 'kitty -e bash -c "pacman -Syu; echo Done - Press enter to exit; read" &' # required
+  updateCmd: 'kitty -e bash -c "sudo pacman -Syu; echo Done - Press enter to exit; read" &' # required
 # Maximum number of chars that can be present in the window title
 # after that the title will be truncated
 truncateTitleAfterLength: 150 # optional, default 150
