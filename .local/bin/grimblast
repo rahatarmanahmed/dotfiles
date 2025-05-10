@@ -263,7 +263,7 @@ if [ "$ACTION" = "copy" ]; then
     takeScreenshot - "$GEOM" "$OUTPUT" | wl-copy --type image/png || die "Clipboard error"
     wl-paste > /tmp/last_grimblast
   echo 2
-    notifyOk "$WHAT copied to buffer" -i /tmp/last_grimblast
+    notifyOk "$WHAT copied to buffer" "press ctrl-shift-5 to edit" -i /tmp/last_grimblast
   echo 3
 elif [ "$ACTION" = "save" ]; then
     if takeScreenshot "$FILE" "$GEOM" "$OUTPUT"; then
