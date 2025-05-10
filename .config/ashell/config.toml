@@ -1,0 +1,54 @@
+appLauncherCmd = "fuzzel"
+truncateTitleAfterLength = 150
+
+[modules]
+left = ["appLauncher", "workspaces", "updates"]
+center = ["windowTitle"]
+right = ["tray", ["clock", "settings"]]
+[updates]
+checkCmd = "pacman -Qu"
+updateCmd = 'kitty -e bash -c "sudo pacman -Syu; echo Done - Press enter to exit; read" &'
+
+[workspaces]
+visibilityMode = "monitorSpecific"
+enableWorkspaceFilling = false
+
+[system]
+[system.cpu]
+warn_threshold = 60
+alert_threshold = 80 
+[system.mem]
+warn_threshold = 70
+alert_threshold = 85
+[system.temp]
+warn_threshold = 60
+alert_threshold = 80
+
+[clock]
+# clock format see: https://docs.rs/chrono/latest/chrono/format/strftime/index.html
+format =  "%A, %b %d – %R" 
+
+[mediaPlayer]
+maxTitleLength = 100
+
+[settings]
+lockCmd = "hyprlock &"
+audioSinksMoreCmd = "pavucontrol -t 3"
+audioSourcesMoreCmd = "pavucontrol -t 4"
+wifiMoreCmd = "nm-connection-editor"
+vpnMoreCmd = "nm-connection-editor"
+bluetoothMoreCmd = "blueman-manager"
+
+[appearance]
+primaryColor = "#a9b665"
+secondaryColor = "#2a2b28"
+successColor = "#6c782e"
+dangerColor = "#c14a4a"
+textColor = "#cdc5a4"
+workspaceColors = [ "#a9b665"]
+specialWorkspaceColors = [ "#a9b665"]
+
+[appearance.backgroundColor]
+base = "#1d2021" 
+weak = "#2f302d" 
+strong = "#3F3F38" 

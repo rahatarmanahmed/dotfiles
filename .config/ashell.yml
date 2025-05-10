@@ -68,7 +68,7 @@ system:
 # Clock module configuration
 clock:
   # clock format see: https://docs.rs/chrono/latest/chrono/format/strftime/index.html
-  format: "%a %d %b %R" # optional, default: %a %d %b %R
+  format: "%A, %b %d – %R" # optional, default: %a %d %b %R
 # Media player module configuration
 mediaPlayer:
   maxTitleLength: 100 # optional, default 100
@@ -103,7 +103,10 @@ settings:
 #   weak: #448855 -- optional default autogenarated from base color
 #   text: #ffffff -- optional default base text color
 appearance:
-  backgroundColor: "#1d2021" # used as a base background color for header module button
+  backgroundColor: # used as a base background color for header module button
+    base: "#1d2021" 
+    weak: "#2f302d" 
+    strong: "#3F3F38" 
   primaryColor: "#a9b665" # used as a accent color
   secondaryColor: "#2a2b28" # used for darker background color
   successColor: "#6c782e" # used for success message or happy state
