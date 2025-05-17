@@ -1,17 +1,17 @@
-appLauncherCmd = "fuzzel"
-truncateTitleAfterLength = 150
+app_launcher_cmd = "fuzzel"
+truncate_title_after_length = 150
 
 [modules]
-left = ["appLauncher", "workspaces", "updates"]
-center = ["windowTitle"]
-right = ["tray", ["clock", "settings"]]
+left = ["AppLauncher", "Workspaces", "Updates"]
+center = ["WindowTitle"]
+right = ["Tray", ["Clock", "Settings"]]
 [updates]
-checkCmd = "pacman -Qu"
-updateCmd = 'kitty -e bash -c "sudo pacman -Syu; echo Done - Press enter to exit; read" &'
+check_cmd = "pacman -Qu"
+update_cmd = 'kitty -e bash -c "sudo pacman -Syu; echo Done - Press enter to exit; read" &'
 
 [workspaces]
-visibilityMode = "monitorSpecific"
-enableWorkspaceFilling = false
+visibility_mode = "MonitorSpecific"
+enable_workspace_filling = false
 
 [system]
 [system.cpu]
@@ -29,26 +29,30 @@ alert_threshold = 80
 format =  "%A, %b %d – %R" 
 
 [mediaPlayer]
-maxTitleLength = 100
+max_title_length = 100
 
 [settings]
-lockCmd = "hyprlock &"
-audioSinksMoreCmd = "pavucontrol -t 3"
-audioSourcesMoreCmd = "pavucontrol -t 4"
-wifiMoreCmd = "nm-connection-editor"
-vpnMoreCmd = "nm-connection-editor"
-bluetoothMoreCmd = "blueman-manager"
+lock_cmd = "hyprlock &"
+audio_sinks_more_cmd = "pavucontrol -t 3"
+audio_sources_more_cmd = "pavucontrol -t 4"
+wifi_more_cmd = "nm-connection-editor"
+vpn_more_cmd = "nm-connection-editor"
+bluetooth_more_cmd = "blueman-manager"
 
 [appearance]
-primaryColor = "#a9b665"
-secondaryColor = "#2a2b28"
-successColor = "#6c782e"
-dangerColor = "#c14a4a"
-textColor = "#cdc5a4"
-workspaceColors = [ "#a9b665"]
-specialWorkspaceColors = [ "#a9b665"]
+primary_color = "#a9b665"
+secondary_color = "#2a2b28"
+success_color = "#6c782e"
+danger_color = "#c14a4a"
+text_color = "#cdc5a4"
+workspace_colors = [ "#a9b665"]
+special_workspace_colors = [ "#a9b665"]
+opacity = 0.8
 
-[appearance.backgroundColor]
+[appearance.background_color]
 base = "#1d2021" 
 weak = "#2f302d" 
 strong = "#3F3F38" 
+
+[appearance.menu]
+opacity = 0.8
