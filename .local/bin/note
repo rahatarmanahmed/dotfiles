@@ -1,19 +1,69 @@
 #!/usr/bin/env bash
-# Opens a named note file in your editor.  Creates the file if it doesn't exist.
+# Opens a named note file in your editor. Creates the file if it doesn't exist.
 #
 # Usage:
+#   # Use fzf to pick an existing note or type path for new one. 
+#   $ note 
+#   # Open existing note
 #   $ note <name>
+#
+#   It'll append .md if needed.
 
 set -e
 
 readonly NOTES_DIRECTORY="${NOTES_DIRECTORY:-"${HOME}/notes"}"
 
+NOTES_PATH=""
+FZF_QUERY_RESULT=""
+FZF_EXIT_CODE=0
+
 if [ $# -ne 1 ]; then
-  echo "Usage: $0 <name>" >&2
-  exit 1
+  # Use --print-query to get the typed query even if no match is found.
+  # Use --exit-0 so fzf exits with 0 if no match AND nothing is typed.
+  # Use --bind=enter:replace-query+print-query to make it print the query OR the selection, not both
+  # We also capture the exit code to distinguish between selection, no match, or cancellation.
+  FZF_QUERY_RESULT=$(ls "${NOTES_DIRECTORY}"/*.md 2>/dev/null | fzf --print-query --exit-0 --bind=enter:replace-query+print-query)
+  FZF_EXIT_CODE=$?
+
+  if [ "${FZF_EXIT_CODE}" -eq 0 ]; then
+    # If FZF_EXIT_CODE is 0, it means either a file was selected or nothing was typed but enter was pressed (due to --exit-0).
+    # We need to check if FZF_QUERY_RESULT actually contains a file path.
+    if [ -e "${FZF_QUERY_RESULT}" ]; then
+      NOTES_PATH="${FZF_QUERY_RESULT}"
+    else
+      # If FZF_QUERY_RESULT is not an existing file, it must be the typed query.
+      # We need to append .md to it if it doesn't already have it.
+      if [[ "${FZF_QUERY_RESULT}" == *.md ]]; then
+        NOTES_PATH="${NOTES_DIRECTORY}/${FZF_QUERY_RESULT}"
+      else
+        NOTES_PATH="${NOTES_DIRECTORY}/${FZF_QUERY_RESULT}.md"
+      fi
+    fi
+  elif [ "${FZF_EXIT_CODE}" -eq 1 ]; then
+    # FZF_EXIT_CODE 1 means no match was found but the user typed something and pressed enter.
+    # In this case, FZF_QUERY_RESULT will contain the typed query.
+    if [[ "${FZF_QUERY_RESULT}" == *.md ]]; then
+      NOTES_PATH="${NOTES_DIRECTORY}/${FZF_QUERY_RESULT}"
+    else
+      NOTES_PATH="${NOTES_DIRECTORY}/${FZF_QUERY_RESULT}.md"
+    fi
+  else
+    # FZF_EXIT_CODE 130 means the user pressed Ctrl+C or Escape.
+    # In this case, we exit the script without opening an editor.
+    echo "Note selection cancelled."
+    exit 1
+  fi
+else
+  # If a name is provided as an argument, use it directly.
+  if [[ "$1" == *.md ]]; then
+    NOTES_PATH="${NOTES_DIRECTORY}/$1"
+  else
+    NOTES_PATH="${NOTES_DIRECTORY}/$1.md"
+  fi
 fi
 
-NOTES_PATH="${NOTES_DIRECTORY}/$1.md"
+# Create the directory if it doesn't exist
+mkdir -p "$(dirname "${NOTES_PATH}")"
 
 # Open the file in the default editor.
 eval "${EDITOR}" "${NOTES_PATH}"
