@@ -56,3 +56,4 @@ vim.opt.expandtab = true
 vim.opt.shiftround = false
 
 vim.diagnostic.config({ virtual_lines = true })
+
