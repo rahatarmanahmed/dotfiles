@@ -7,7 +7,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(ev)
     local client = vim.lsp.get_client_by_id(ev.data.client_id)
     if client and client:supports_method('textDocument/completion') then
-      vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
+      vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = false })
     end
   end,
 })
@@ -31,9 +31,6 @@ cmp.setup({
         ['<Enter>'] = cmp.mapping.confirm(),
         ['<Tab>'] = cmp.mapping.confirm(),
     }),
-    -- preselect first item
-    preselect = 'item',
-    completion = {
-        completeopt = 'menu,menuone,noinsert'
-    },
+    preselect = cmp.PreselectMode.None,
+    completion = { completeopt = "menu,menuone,noselect" },
 })
