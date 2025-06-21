@@ -26,7 +26,7 @@ alert_threshold = 80
 
 [clock]
 # clock format see: https://docs.rs/chrono/latest/chrono/format/strftime/index.html
-format =  "%A, %b %d – %R" 
+format =  "%A, %b %d – %T" 
 
 [mediaPlayer]
 max_title_length = 100
