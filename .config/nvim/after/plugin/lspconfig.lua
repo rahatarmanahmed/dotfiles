@@ -31,6 +31,6 @@ cmp.setup({
         ['<Enter>'] = cmp.mapping.confirm(),
         ['<Tab>'] = cmp.mapping.confirm(),
     }),
-    preselect = cmp.PreselectMode.None,
-    completion = { completeopt = "menu,menuone,noselect" },
+    preselect = cmp.PreselectMode.Item,
+    completion = { completeopt = "menu,menuone" },
 })
