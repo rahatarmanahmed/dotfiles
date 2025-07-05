@@ -3,7 +3,7 @@ truncate_title_after_length = 150
 
 [modules]
 left = ["AppLauncher", "Workspaces", "Updates"]
-center = ["WindowTitle"]
+center = []
 right = ["Tray", ["Clock", "Settings"]]
 [updates]
 check_cmd = "pacman -Qu"
@@ -36,7 +36,7 @@ lock_cmd = "hyprlock &"
 audio_sinks_more_cmd = "pavucontrol -t 3"
 audio_sources_more_cmd = "pavucontrol -t 4"
 wifi_more_cmd = "kitty --class=kitty-popup /usr/bin/nmtui"
-bluetooth_more_cmd = "blueman-manager"
+bluetooth_more_cmd = "blueberry"
 
 [appearance]
 primary_color = "#a9b665"
