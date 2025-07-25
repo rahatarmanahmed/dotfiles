@@ -9,9 +9,6 @@ Name=note
 # A comment which can/will be used as a tooltip
 Comment=Command line shortcut to note txt file
 
-# The path to the folder in which the executable is run
-Path=$HOME/notes
-
 # The executable of the application, possibly with arguments.
 Exec=note
 

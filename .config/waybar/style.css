@@ -1,130 +1,48 @@
-/*
-[appearance]
-primary_color = "#a9b665"
-secondary_color = "#2a2b28"
-success_color = "#6c782e"
-danger_color = "#c14a4a"
-text_color = "#cdc5a4"
-workspace_colors = [ "#a9b665"]
-special_workspace_colors = [ "#a9b665"]
-opacity = 0.8
+@define-color foreground #cdd6f4;
+@define-color background #181824;
 
-[appearance.background_color]
-base = "#1d2021" 
-weak = "#2f302d" 
-strong = "#3F3F38" 
-*/
+* {
+  background-color: @background;
+  color: @foreground;
 
-@define-color bar-bg /* rgba(29, 32, 33 , 0.2); */ #1d2021;
-
-@define-color main-bg #2a2b28;
-@define-color main-fg #cdc5a4;
-
-@define-color main-hvr-bg #3f3f38;
-@define-color main-hvr-fg #cdc5a4;
-
-@define-color wb-act-bg #a9b665;
-@define-color wb-act-fg #1d2021;
-
-@define-color wb-hvr-bg #a9b665;
-@define-color wb-hvr-fg #1d2021;
-
-
-
-window#waybar {
-    background: @bar-bg;
-    color: @main-fg;
-    font-weight: bold;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  font-family: CaskaydiaMono Nerd Font Propo;
+  font-size: 12px;
 }
-
-
-.modules-left,
-.modules-right {
-    background: @main-bg;
-    border-radius: 2em;
-}
-
-/******** LEFT ********/
 
 .modules-left {
-    padding-left: 0em;
-    padding-right: 0em;
+  margin-left: 8px;
 }
-
-#workspaces {
-  padding-left: 0.4em;
-  padding-right: 0.4em;
-}
-
-
-#workspaces button {
-    font-weight: bold;
-    box-shadow: none;
-    text-shadow: none;
-    padding: 0em;
-    margin-top: 0.3em;
-    margin-bottom: 0.3em;
-    margin-left: 0.2em;
-    margin-right: 0.2em;
-    padding-left: 0.3em;
-    padding-right: 0.3em;
-    color: @main-fg;
-}
-
-#workspaces button:hover {
-    background: @main-hvr-bg;
-    color: @main-hvr-fg;
-}
-
-#workspaces button.active {
-    background: @wb-act-bg;
-    color: @wb-act-fg;
-    padding-left: 1.2em;
-    padding-right: 1.2em;
-}
-
-
-/******** CENTER ********/
-
-.modules-center {
-  background: transparent;
-}
-
-#clock {
-  padding-left: .8em;
-  padding-right: .8em;
-  border-radius: 2em;
-  background: transparent;
-}
-
-
-#clock:hover {
-    background: @main-hvr-bg;
-    color: @main-hvr-fg;
-}
-
-/******** RIGHT ********/
 
 .modules-right {
-    padding-left: .8em;
-    padding-right: .8em;
+  margin-right: 8px;
 }
 
-#backlight, #network, #pulseaudio, #battery {
-    padding-left: .8em;
-    padding-right: .8em;
-    border-radius: 2em;
+#workspaces button {
+  all: initial;
+  padding: 0 6px;
+  margin: 0 1.5px;
+  min-width: 9px;
 }
 
-#backlight, #network, #pulseaudio/*, #battery*/ {
-    margin-right: .5em;
+#tray,
+#cpu,
+#battery,
+#network,
+#bluetooth,
+#pulseaudio,
+#clock,
+#custom-power-menu {
+  min-width: 12px;
+  margin: 0 7.5px;
 }
 
-#backlight:hover,
-#network:hover,
-#pulseaudio:hover,
-#battery:hover
-{
-    background: @main-hvr-bg;
-    color: @main-hvr-fg;
+#custom-expand-icon {
+  margin-right: 12px;
+}
+
+tooltip {
+  padding: 2px;
 }
