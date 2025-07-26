@@ -33,7 +33,7 @@
   "backlight": {
     "device": "intel_backlight",
     "format": "󰃞 {percent}%",
-    "tooltip-format": "{icon} Backlight: {percent}% ",
+    "tooltip-format": "Backlight: {percent}%",
     "on-scroll-up": "brightnessctl set 1%-",
     "on-scroll-down": "brightnessctl set +1%",
     "min-length": 6
@@ -86,8 +86,6 @@
   },
   "battery": {
     "format": "{icon} {capacity}%",
-    "format-discharging": "{icon} {capacity}%",
-    "format-charging":    "{icon} {capacity}%",
     "format-plugged":     " {capacity}%",
     "format-icons": {
       "charging": [
@@ -98,8 +96,8 @@
       ]
     },
     "format-full": "󰂅",
-    "tooltip-format-discharging": "{power:>1.0f}W↓ {time} {capacity}%",
-    "tooltip-format-charging": "{power:>1.0f}W↑ {time} {capacity}%",
+    "tooltip-format-discharging": "{power:>1.0f}W↓ | {time} left",
+    "tooltip-format-charging": "{power:>1.0f}W↑ | {time} until full",
     "interval": 5,
     "states": {
       "warning": 20,
