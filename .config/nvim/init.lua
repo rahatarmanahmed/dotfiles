@@ -55,5 +55,8 @@ vim.opt.expandtab = true
 -- Don't round to nearest tabs (helps when trying to precisely set # of spaces)
 vim.opt.shiftround = false
 
+-- Enable 24-bit colors
+vim.opt.termguicolors = true
+
 vim.diagnostic.config({ virtual_lines = true })
 
