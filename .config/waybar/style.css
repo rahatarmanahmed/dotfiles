@@ -9,7 +9,7 @@
 @define-color background #1d2021;
 @define-color background-light #3c3836;
 @define-color foreground #ebdbb2;
-@define-color foreground-light #ebdbb2;
+@define-color foreground-light #A0977D;
 @define-color black #32302f;
 @define-color red #cc241d;
 @define-color green #a9b665;
@@ -105,6 +105,11 @@ window#waybar {
     box-shadow: inherit;
     box-shadow: inherit;
     text-shadow: inherit;
+}
+
+#cpu,
+#memory {
+  color: @foreground-light;
 }
 
 /* Workspaces styling */

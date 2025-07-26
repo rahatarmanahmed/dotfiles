@@ -52,24 +52,23 @@
     "on-click": "kitty --class=Impala -e impala"
   },
   "pulseaudio": {
-    "format": "{icon} {volume}",
-    "format-muted": "婢",
-    "on-click": "pavucontrol -t 3",
-    "tooltip-format": "{icon} {desc}: {volume}%",
-    "scroll-step": 5,
+    "format": "{icon} {volume}%",
+    "format-bluetooth": "󰂰 {volume}%",
+    "format-bluetooth-muted": "󰂲 {icon}",
+    "format-muted": "󰝟",
     "format-icons": {
-      "headphone": "",
-      "hands-free": "",
-      "headset": "",
-      "phone": "",
-      "portable": "",
-      "car": "",
-      "default": [
-        "",
-        "",
-        ""
-      ]
-    }
+      "headphone": "󰋋",
+      "hands-free": "󰥰",
+      "headset": "󰋎",
+      "phone": "󰏲",
+      "portable": "󰄝",
+      "car": "󰄋",
+      "default": ["󰕿", "󰖀", "󰕾"]
+    },
+    "on-click": "pavucontrol",
+    "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +2%",
+    "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -2%"
   },
   "pulseaudio#microphone": {
     "format": "{format_source}",
