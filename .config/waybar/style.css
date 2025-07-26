@@ -138,3 +138,10 @@ window#waybar {
     color: @workspaces-active-fg;
 }
 
+#battery.warning {
+  color: @yellow;
+}
+
+#battery.critical {
+  color: @red;
+}
