@@ -1,7 +1,17 @@
-alias la="ls -ahF"
-alias ls="ls -hF"
-alias ll="ls -lhF"
-alias lla="ls -lahF"
+
+if command -v eza &> /dev/null
+then
+  alias ls='eza'
+  alias l='eza -bF --git --icons=always'
+  alias ll='eza -lbF --git --icons=always'
+  alias llm='eza -lbhgmF --git --sort=modified --icons=always'
+  alias la='eza -lbhgaF  --git --color-scale --icons=always'
+else
+  alias la="ls -ahF"
+  alias ls="ls -hF"
+  alias ll="ls -lhF"
+fi
+
 alias "cd.."="cd ../"
 alias up="cd ../"
 alias cp="cp -r"
