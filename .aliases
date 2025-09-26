@@ -39,3 +39,5 @@ if [ "$(uname -s | cut -c 1-5)" = "Linux" ]; then
     alias pbcopy='xclip -selection clipboard'
     alias pbpaste='xclip -selection clipboard -o'
 fi
+
+alias cat=bat
