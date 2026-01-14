@@ -2,6 +2,7 @@ vim.lsp.enable('lua_ls')
 vim.lsp.enable('openscad_ls')
 vim.lsp.enable('rust_analyzer')
 vim.lsp.enable('ts_ls')
+vim.lsp.enable('pyright')
 
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(ev)
@@ -24,6 +25,7 @@ cmp.setup({
     sources = {
         { name = 'nvim_lsp' },
         { name = 'hledger' },
+        { name = 'beancount' },
         { name = 'path' },
         { name = 'buffer' },
     },
