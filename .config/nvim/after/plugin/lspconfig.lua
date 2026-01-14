@@ -3,6 +3,13 @@ vim.lsp.enable('openscad_ls')
 vim.lsp.enable('rust_analyzer')
 vim.lsp.enable('ts_ls')
 vim.lsp.enable('pyright')
+vim.lsp.enable('beancount')
+vim.filetype.add({
+  extension = {
+    beancount = "beancount",
+    bean = "beancount",
+  },
+})
 
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(ev)
