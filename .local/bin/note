@@ -22,7 +22,7 @@ if [ $# -ne 1 ]; then
   # Use --exit-0 so fzf exits with 0 if no match AND nothing is typed.
   # Use --bind=enter:replace-query+print-query to make it print the query OR the selection, not both
   # We also capture the exit code to distinguish between selection, no match, or cancellation.
-  FZF_QUERY_RESULT=$(ls "${NOTES_DIRECTORY}"/*.md 2>/dev/null | fzf --print-query --exit-0 --bind=enter:replace-query+print-query)
+  FZF_QUERY_RESULT=$(find "${NOTES_DIRECTORY}" -type f -name "*.md" 2>/dev/null | fzf --print-query --exit-0 --bind=enter:replace-query+print-query)
   FZF_EXIT_CODE=$?
 
   if [ "${FZF_EXIT_CODE}" -eq 0 ]; then
